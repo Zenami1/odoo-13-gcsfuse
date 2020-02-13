@@ -34,3 +34,4 @@ RUN apt-get update && apt-get upgrade -y && apt install -y git \
 	  && pip3 install python-barcode xlrd
 
 COPY --from=Gscfuse /usr/bin/gcsfuse /usr/bin/gcsfuse 
+COPY --from=Gscfuse /bin/fusermount /bin/fusermount 
