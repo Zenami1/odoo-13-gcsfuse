@@ -3,6 +3,10 @@ services:
 - docker
 before_install:
 # - docker build -t jc1204/odoo-13-gcsfuse .
+
+script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+
 deploy:
   provider: script
   script:
