@@ -1,4 +1,4 @@
-language: python
+language: generic
 services:
 - docker
 before_install:
@@ -6,8 +6,7 @@ before_install:
 deploy:
   provider: script
   script:
-  - docker login -u ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
-  - docker push jc1204/odoo-13-gcsfuse
+  - docker login -u ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD} && docker push jc1204/odoo-13-gcsfuse
   on:
     branch: master
 env:
