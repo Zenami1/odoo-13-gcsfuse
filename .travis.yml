@@ -7,9 +7,9 @@ before_install:
   - docker build -t jc1204/odoo-13-gcsfuse .
 
 script:
-  - echo "$docker_secret" | docker login -u "$docker_username" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 deploy:
   provider: script
-  script: bash docker_push
+  script: docker push jc1204/odoo-13-gcsfuse # bash docker_push
   on:
     branch: master
