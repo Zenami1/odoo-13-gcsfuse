@@ -1,0 +1,16 @@
+language: python
+
+services:
+  - docker
+
+before_install:
+  - docker build -t jc1204/odoo-13-gcsfuse .
+
+script:
+  - echo "$docker_secret" | docker login -u "$docker_username" --password-stdin
+deploy:
+  provider: script
+  script: 
+    - docker login -u ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
+  on:
+    branch: master
