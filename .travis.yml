@@ -2,11 +2,12 @@ language: generic
 services:
 - docker
 before_install:
-- docker build -t jc1204/odoo-13-gcsfuse .
+# - docker build -t jc1204/odoo-13-gcsfuse .
 deploy:
   provider: script
   script:
-  - bash docker_push $DOCKER_USERNAME $DOCKER_PASSWORD
+  #- bash docker_push $DOCKER_USERNAME $DOCKER_PASSWORD
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   on:
     branch: master
 env:
