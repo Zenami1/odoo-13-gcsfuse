@@ -2,7 +2,7 @@ language: python
 services:
 - docker
 before_install:
-- docker build -t jc1204/odoo-13-gcsfuse:$TRAVIS_TAG .
+- docker build -t jc1204/odoo-13-gcsfuse:$TRAVIS_COMMIT .
 #- docker tag jc1204/odoo-13-gcsfuse:$TRAVIS_COMMIT jc1204/odoo-13-gcsfuse:latest
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
