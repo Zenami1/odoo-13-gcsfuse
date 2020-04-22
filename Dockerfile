@@ -33,6 +33,7 @@ RUN apt-get update && apt-get upgrade -y && apt install -y git \
       && chown odoo: -R /mnt/odoo/OCA \
 	  && pip3 install python-barcode xlrd
 
+# mabe delete old addons if exist ?
 COPY ./addons/ /mnt/extra-addons
 
 COPY --from=Gscfuse /usr/bin/gcsfuse /usr/bin/gcsfuse 
